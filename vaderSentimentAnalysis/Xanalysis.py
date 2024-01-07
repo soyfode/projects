@@ -1,49 +1,51 @@
-# Importamos las bibliotecas necesarias
+# Import the necessary libraries
 import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 import plotly.graph_objects as go
 from datetime import datetime
 
-# Descargamos el léxico vader que es necesario para el análisis de sentimientos utilizando SentimentIntensityAnalyzer
+# Download the vader lexicon which is necessary for sentiment analysis using SentimentIntensityAnalyzer
 nltk.download('vader_lexicon')
 
-# Creamos una instancia de la clase SentimentIntensityAnalyzer
+# Create an instance of the SentimentIntensityAnalyzer class
 sia = SentimentIntensityAnalyzer()
 
-# Leemos el archivo CSV 'ukraineData.csv' en un DataFrame
+# Read the CSV file 'ukraineData.csv' into a DataFrame
 data = pd.read_csv('ukraineData.csv')
 
-# Convertimos la columna 'Date' a formato de fecha y hora
+# Convert the 'Date' column to date and time format
 data['Date'] = data['Date'].apply(lambda x: datetime.strptime(x.replace("·", "").strip(), "%b %d, %Y %I:%M %p %Z"))
 
-# Extraemos la fecha y la hora en columnas separadas
-data['Fecha'] = data['Date'].dt.date
-data['Hora'] = data['Date'].dt.time
+# Extract the date and time into separate columns
+data['Date'] = data['Date'].dt.date
+data['Time'] = data['Date'].dt.time
 
-# Convertimos la columna 'Tweets' del DataFrame en una lista
+# Convert the 'Tweets' column of the DataFrame into a list
 phrases = data['Tweets'].tolist()
 
-# Creamos una lista vacía para almacenar los puntajes de sentimiento
+# Create an empty list to store the sentiment scores
 scores = []
 
-# Iteramos sobre cada frase en la lista de frases
+# Iterate over each phrase in the list of phrases
 for phrase in phrases:
-    # Obtenemos los puntajes de sentimiento de la frase
+    # Get the sentiment scores of the phrase
     score = sia.polarity_scores(phrase)
     
-    # Añadimos el puntaje de sentimiento a la lista de puntajes
+    # Add the sentiment score to the list of scores
     scores.append(score['compound'])
 
-# Añadimos la lista de puntajes como una nueva columna en el DataFrame
+# Add the list of scores as a new column in the DataFrame
 data['Score'] = scores
 
-# Ordenamos el DataFrame por la columna 'Date'
+# Sort the DataFrame by the 'Date' column
 data.sort_values('Date', inplace=True)
 
-# Eliminar la primera fila: Ya que se encuentra en una linea de tiempo muy separada al resto
+# Remove the first row: As it is on a very separate timeline to the rest
 data = data.iloc[1:]
 
-# exportar a csv, data con coma decimal
+# Export to csv, data with decimal comma
 data.to_csv('sentimentAnalysis.csv', decimal='.', index=False)
+
+
 
