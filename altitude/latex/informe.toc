@@ -1,0 +1,11 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}¿Qué región tiene las ventas más altas (en \$us) y con cuánto?}{4}{}%
+\contentsline {section}{\numberline {2}¿Qué país tiene la mayor cantidad de unidades de carne vendidas?}{4}{}%
+\contentsline {section}{\numberline {3}Dato inconsistente}{4}{}%
+\contentsline {section}{\numberline {4}¿Cuál es el tipo de producto con mayor margen bruto porcentual?}{5}{}%
+\contentsline {section}{\numberline {5}Grafica un pareto de margen bruto por país e indica cuántos países cubren el \boldmath $80\%$ del margen generado a nivel mundial.}{5}{}%
+\contentsline {section}{\numberline {6}Calcula el tiempo promedio (en días) por país que toma en ser enviada una orden desde la fecha en que se registra la orden (order date vs ship date)}{6}{}%
+\contentsline {section}{\numberline {7}Calcula la tasa de crecimiento anual compuesta de ventas a nivel mundial, para el mayor rango de años consecutivos con ventas en todos los meses del año.}{6}{}%
+\contentsline {section}{\numberline {8}Para órdenes realizadas (order date) en diciembre del 2015, responde a las siguientes preguntas utilizando una tabla dinámica:}{7}{}%
+\contentsline {paragraph}{Identifica en qué día de la semana (lunes - domingo) se dan la mayor cantidad de envíos}{7}{}%
+\contentsline {paragraph}{Identifica en qué día de la semana (lunes-domingo) se dan la menor cantidad de envíos}{7}{}%
