@@ -301,8 +301,3 @@ df$`exp periodo` <- NULL
 
 # Exportar .csv
 write.csv(df, file = "data/salario.csv", row.names = FALSE)
-
-
-x0 = data.frame(
-  
-)
