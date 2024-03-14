@@ -1,0 +1,17 @@
+version: '3'
+services:
+  jupyter:
+    image: jupyter/scipy-notebook:latest
+    volumes:
+      - .:/home/jovyan/work
+      - ${PWD}:/home/jovyan/notebooks
+    ports:
+      - 8888:8888
+    command: start.sh jupyter lab
+    environment:
+      - GRANT_SUDO=yes
+    user: root
+    build:
+      context: .
+      dockerfile: Dockerfile
+
