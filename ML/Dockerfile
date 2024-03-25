@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install --upgrade pip
 
-RUN pip3 install scikit-learn spacy torch pyspark pandas numpy plot_classifier
+RUN pip3 install scikit-learn spacy torch pyspark pandas numpy
 
 RUN python3 -m spacy download en
 
